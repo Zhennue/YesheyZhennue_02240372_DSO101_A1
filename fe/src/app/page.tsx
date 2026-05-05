@@ -108,14 +108,14 @@ export default function Home() {
     <div className={styles.page}>
       <main className={styles.main}>
         <header className={styles.header}>
-          <span className={styles.badge}>Task Board</span>
-          <h1 className={styles.title}>Plan your day with style</h1>
+          <span className={styles.badge}>Daily list</span>
+          <h1 className={styles.title}>Keep your day in one place</h1>
           <p className={styles.subtitle}>
-            Add, complete, and edit tasks in a clean, minimal UI.
+            A plain, useful list for the things you actually want to finish.
           </p>
           <div className={styles.metaRow}>
             <span className={styles.metaText}>
-              Backend:
+              Connected to:
               <code className={styles.code}>{API_URL}</code>
             </span>
             <button
@@ -126,6 +126,9 @@ export default function Home() {
               Refresh
             </button>
           </div>
+          <p className={styles.helper}>
+            Double-click any task to rename it. Keep it quick, keep it moving.
+          </p>
         </header>
 
         <section className={styles.card}>
