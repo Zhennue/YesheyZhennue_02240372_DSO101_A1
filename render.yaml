@@ -1,0 +1,42 @@
+services:
+  - type: web
+    name: be-todo
+    env: docker
+    dockerfilePath: ./be/Dockerfile
+    envVars:
+      - key: PORT
+        value: 5000
+      - key: DB_HOST
+        fromDatabase:
+          name: todo-db
+          property: host
+      - key: DB_PORT
+        fromDatabase:
+          name: todo-db
+          property: port
+      - key: DB_USER
+        fromDatabase:
+          name: todo-db
+          property: user
+      - key: DB_PASSWORD
+        fromDatabase:
+          name: todo-db
+          property: password
+      - key: DB_NAME
+        fromDatabase:
+          name: todo-db
+          property: database
+
+  - type: web
+    name: fe-todo
+    env: docker
+    dockerfilePath: ./fe/Dockerfile
+    envVars:
+      - key: NEXT_PUBLIC_API_URL
+        value: https://be-todo.onrender.com
+
+databases:
+  - name: todo-db
+    databaseName: todo_db
+    user: todo_user
+    plan: free
