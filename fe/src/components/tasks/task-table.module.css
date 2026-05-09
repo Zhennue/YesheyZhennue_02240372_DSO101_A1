@@ -1,0 +1,185 @@
+.tableShell {
+  border-radius: 22px;
+  overflow: hidden;
+  border: 1px solid rgba(124, 95, 67, 0.14);
+  background: linear-gradient(
+    180deg,
+    rgba(255, 251, 245, 0.96),
+    rgba(248, 241, 231, 0.96)
+  );
+  box-shadow: 0 12px 30px rgba(73, 55, 41, 0.06);
+}
+
+.tableScroll {
+  overflow-x: auto;
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.headCell {
+  padding: 14px 16px;
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  text-align: left;
+  color: #87796a;
+  background: rgba(255, 255, 255, 0.34);
+  border-bottom: 1px solid rgba(124, 95, 67, 0.12);
+}
+
+.row {
+  transition:
+    background 0.16s ease,
+    transform 0.08s ease;
+}
+
+.row:hover {
+  background: rgba(255, 255, 255, 0.68);
+}
+
+.cell {
+  padding: 14px 16px;
+  border-bottom: 1px solid rgba(124, 95, 67, 0.1);
+  vertical-align: middle;
+}
+
+.selectCell {
+  width: 54px;
+}
+
+.titleCell {
+  width: auto;
+}
+
+.statusCell {
+  width: 132px;
+}
+
+.actionsCell {
+  width: 72px;
+  text-align: right;
+}
+
+.checkboxLabel {
+  position: relative;
+  width: 18px;
+  height: 18px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.checkboxInput {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  cursor: pointer;
+}
+
+.checkboxCustom {
+  width: 16px;
+  height: 16px;
+  border-radius: 5px;
+  border: 1px solid rgba(124, 95, 67, 0.38);
+  background: rgba(255, 255, 255, 0.92);
+  box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.5);
+  transition:
+    background 0.16s ease,
+    border-color 0.16s ease,
+    box-shadow 0.16s ease,
+    transform 0.08s ease;
+}
+
+.checkboxInput:checked + .checkboxCustom {
+  background: linear-gradient(180deg, #8fb28f, #6f9672);
+  border-color: rgba(92, 122, 94, 0.95);
+  box-shadow: 0 0 0 1px rgba(92, 122, 94, 0.3);
+}
+
+.checkboxInput:focus-visible + .checkboxCustom {
+  box-shadow: 0 0 0 3px rgba(124, 95, 67, 0.18);
+}
+
+.taskText {
+  display: block;
+  max-width: 100%;
+  font-size: 13px;
+  color: #2f2924;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  cursor: default;
+}
+
+.completed {
+  color: #8a7f74;
+  text-decoration: line-through;
+}
+
+.editInput {
+  width: 100%;
+  padding: 8px 10px;
+  border-radius: 10px;
+  border: 1px solid rgba(124, 95, 67, 0.18);
+  background: rgba(255, 255, 255, 0.95);
+  color: #2f2924;
+  font-size: 13px;
+  outline: none;
+}
+
+.editInput:focus {
+  border-color: rgba(124, 95, 67, 0.34);
+  box-shadow: 0 0 0 3px rgba(124, 95, 67, 0.08);
+}
+
+.statusBadge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 78px;
+  padding: 5px 10px;
+  border-radius: 999px;
+  border: 1px solid rgba(124, 95, 67, 0.12);
+  background: rgba(255, 255, 255, 0.72);
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #6d5d4f;
+}
+
+.statusDone {
+  background: rgba(111, 150, 114, 0.14);
+  border-color: rgba(111, 150, 114, 0.22);
+  color: #5c7a5e;
+}
+
+.deleteButton {
+  width: 26px;
+  height: 26px;
+  border-radius: 999px;
+  border: 1px solid rgba(124, 95, 67, 0.1);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 13px;
+  color: #a45a49;
+  background: rgba(255, 255, 255, 0.74);
+  cursor: pointer;
+  transition:
+    background 0.16s ease,
+    color 0.16s ease,
+    transform 0.08s ease;
+}
+
+.deleteButton:hover {
+  background: rgba(190, 76, 50, 0.12);
+  color: #8d3e27;
+  transform: translateY(-1px);
+}
+
+.deleteButton:active {
+  transform: translateY(0);
+}

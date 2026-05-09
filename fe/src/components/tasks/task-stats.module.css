@@ -1,0 +1,9 @@
+.statsRow {
+  display: flex;
+  justify-content: space-between;
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: #87796a;
+  padding: 2px 2px 0;
+}

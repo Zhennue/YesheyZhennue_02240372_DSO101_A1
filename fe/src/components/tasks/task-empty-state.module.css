@@ -1,0 +1,15 @@
+.emptyState {
+  padding: 22px 16px 10px;
+  border-radius: 18px;
+  border: 1px dashed rgba(124, 95, 67, 0.24);
+  background: rgba(255, 255, 255, 0.52);
+  text-align: center;
+  color: #7d7166;
+  font-size: 13px;
+}
+
+.title {
+  font-weight: 500;
+  color: #332c26;
+  margin-bottom: 4px;
+}
