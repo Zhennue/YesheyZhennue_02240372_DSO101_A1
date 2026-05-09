@@ -22,7 +22,7 @@ services:
         value: https://be-todo.onrender.com
 
 databases:
-  - name: todo-db
-    databaseName: todo_db
-    user: todo_user
+  - name: dpg-d7vkbrdckfvc73en2b20-a
+    databaseName: db_todo_ppe8
+    user: zhennue
     plan: free
