@@ -12,6 +12,7 @@ import { Task } from "./tasks/task.entity";
       inject: [ConfigService],
       useFactory: (config: ConfigService) => ({
         type: "postgres",
+        url: config.get<string>("DATABASE_URL") ?? undefined,
         host: config.get<string>("DB_HOST"),
         port: parseInt(config.get<string>("DB_PORT", "5432"), 10),
         username: config.get<string>("DB_USER"),
