@@ -6,12 +6,6 @@ pipeline {
 	}
 
 	stages {
-		stage('Checkout') {
-			steps {
-				git branch: 'main', url: 'https://github.com/Zhennue/YesheyZhennue_02240372_DSO101_A1'
-			}
-		}
-
 		stage('Install') {
 			steps {
 				sh 'npm install'
