@@ -8,8 +8,8 @@ import { TaskForm } from "./task-form";
 import { TaskStats } from "./task-stats";
 import { TaskTable } from "./task-table";
 
-const API_LABEL = process.env.NEXT_PUBLIC_API_URL ?? "same-origin /tasks proxy";
-const TASKS_PATH = "/tasks";
+const API_LABEL = "same-origin /api/tasks proxy";
+const TASKS_PATH = "/api/tasks";
 
 export function TaskBoard() {
   const [tasks, setTasks] = useState<Task[]>([]);

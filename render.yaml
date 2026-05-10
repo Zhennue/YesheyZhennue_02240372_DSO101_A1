@@ -20,8 +20,6 @@ services:
     envVars:
       - key: BACKEND_API_URL
         value: https://be-todo.onrender.com
-      - key: NEXT_PUBLIC_API_URL
-        value: https://be-todo.onrender.com
 
 databases:
   - name: dpg-d7vkbrdckfvc73en2b20-a
