@@ -8,7 +8,8 @@ import { TaskForm } from "./task-form";
 import { TaskStats } from "./task-stats";
 import { TaskTable } from "./task-table";
 
-const API_URL = process.env.NEXT_PUBLIC_API_URL ?? "http://localhost:5000";
+const API_LABEL = process.env.NEXT_PUBLIC_API_URL ?? "same-origin /tasks proxy";
+const TASKS_PATH = "/tasks";
 
 export function TaskBoard() {
   const [tasks, setTasks] = useState<Task[]>([]);
@@ -21,7 +22,7 @@ export function TaskBoard() {
   async function fetchTasks() {
     try {
       setError(null);
-      const response = await fetch(`${API_URL}/tasks`);
+      const response = await fetch(TASKS_PATH);
       if (!response.ok) {
         throw new Error("Failed to load tasks");
       }
@@ -47,7 +48,7 @@ export function TaskBoard() {
     setLoading(true);
 
     try {
-      const response = await fetch(`${API_URL}/tasks`, {
+      const response = await fetch(TASKS_PATH, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ title: newTitle.trim() }),
@@ -69,7 +70,7 @@ export function TaskBoard() {
 
   async function handleToggleComplete(task: Task) {
     try {
-      const response = await fetch(`${API_URL}/tasks/${task.id}`, {
+      const response = await fetch(`${TASKS_PATH}/${task.id}`, {
         method: "PATCH",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ completed: !task.completed }),
@@ -109,7 +110,7 @@ export function TaskBoard() {
     }
 
     try {
-      const response = await fetch(`${API_URL}/tasks/${taskId}`, {
+      const response = await fetch(`${TASKS_PATH}/${taskId}`, {
         method: "PATCH",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ title: nextTitle }),
@@ -133,7 +134,7 @@ export function TaskBoard() {
 
   async function handleDelete(taskId: number) {
     try {
-      const response = await fetch(`${API_URL}/tasks/${taskId}`, {
+      const response = await fetch(`${TASKS_PATH}/${taskId}`, {
         method: "DELETE",
       });
 
@@ -167,7 +168,7 @@ export function TaskBoard() {
           <div className={styles.metaRow}>
             <span className={styles.metaText}>
               Connected to:
-              <code className={styles.code}>{API_URL}</code>
+              <code className={styles.code}>{API_LABEL}</code>
             </span>
             <button
               type="button"

@@ -18,6 +18,8 @@ services:
     rootDir: fe
     dockerfilePath: Dockerfile
     envVars:
+      - key: BACKEND_API_URL
+        value: https://be-todo.onrender.com
       - key: NEXT_PUBLIC_API_URL
         value: https://be-todo.onrender.com
 
