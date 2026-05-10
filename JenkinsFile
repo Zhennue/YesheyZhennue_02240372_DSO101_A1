@@ -8,23 +8,29 @@ pipeline {
 	stages {
 		stage('Install') {
 			steps {
-				sh 'npm install'
+				dir('fe') {
+					bat 'npm install'
+				}
 			}
 		}
 
 		stage('Build') {
 			steps {
-				sh 'npm run build'
+				dir('fe') {
+					bat 'npm run build'
+				}
 			}
 		}
 
 		stage('Test') {
 			steps {
-				sh 'npm test'
+				dir('fe') {
+					bat 'npm test'
+				}
 			}
 			post {
 				always {
-					junit 'junit.xml'
+					junit allowEmptyResults: true, testResults: 'fe/junit.xml'
 				}
 			}
 		}
@@ -32,9 +38,11 @@ pipeline {
 		stage('Deploy') {
 			steps {
 				script {
-					docker.build('zhennue111/node-app:latest')
-					docker.withRegistry('https://registry.hub.docker.com', 'docker-hub-creds') {
-						docker.image('zhennue111/node-app:latest').push()
+					dir('fe') {
+						docker.build('zhennue111/fe-todo:latest')
+						docker.withRegistry('https://registry.hub.docker.com', 'docker-hub-creds') {
+							docker.image('zhennue111/fe-todo:latest').push()
+						}
 					}
 				}
 			}
