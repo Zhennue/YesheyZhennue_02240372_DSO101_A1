@@ -45,8 +45,8 @@ pipeline {
         stage('Deploy') {
             steps {
                 echo 'App is deployed on Render.com via GitHub auto-deploy'
-                echo 'Backend: https://be-todo-eytb.onrender.com'
-                echo 'Frontend: https://fe-todo-kinley.onrender.com'
+                echo 'Backend: https://yesheyzhennue-02240372-dso101-a1.onrender.com'
+                echo 'Frontend: https://yesheyzhennue-02240372-dso101-a1-jeng.onrender.com'
             }
         }
     }
