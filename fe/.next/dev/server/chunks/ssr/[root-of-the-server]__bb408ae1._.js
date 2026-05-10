@@ -502,7 +502,8 @@ var __TURBOPACK__imported__module__$5b$project$5d2f$OneDrive$2f$Documents$2f$Yes
 ;
 ;
 ;
-const API_URL = ("TURBOPACK compile-time value", "http://localhost:5000") ?? "http://localhost:5000";
+const API_LABEL = "same-origin /api/tasks proxy";
+const TASKS_PATH = "/api/tasks";
 function TaskBoard() {
     const [tasks, setTasks] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$OneDrive$2f$Documents$2f$YesheyZhennue_02240372_DSO101_A1$2f$fe$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useState"])([]);
     const [newTitle, setNewTitle] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$OneDrive$2f$Documents$2f$YesheyZhennue_02240372_DSO101_A1$2f$fe$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useState"])("");
@@ -513,7 +514,7 @@ function TaskBoard() {
     async function fetchTasks() {
         try {
             setError(null);
-            const response = await fetch(`${API_URL}/tasks`);
+            const response = await fetch(TASKS_PATH);
             if (!response.ok) {
                 throw new Error("Failed to load tasks");
             }
@@ -533,7 +534,7 @@ function TaskBoard() {
         }
         setLoading(true);
         try {
-            const response = await fetch(`${API_URL}/tasks`, {
+            const response = await fetch(TASKS_PATH, {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json"
@@ -559,7 +560,7 @@ function TaskBoard() {
     }
     async function handleToggleComplete(task) {
         try {
-            const response = await fetch(`${API_URL}/tasks/${task.id}`, {
+            const response = await fetch(`${TASKS_PATH}/${task.id}`, {
                 method: "PATCH",
                 headers: {
                     "Content-Type": "application/json"
@@ -592,7 +593,7 @@ function TaskBoard() {
             return;
         }
         try {
-            const response = await fetch(`${API_URL}/tasks/${taskId}`, {
+            const response = await fetch(`${TASKS_PATH}/${taskId}`, {
                 method: "PATCH",
                 headers: {
                     "Content-Type": "application/json"
@@ -613,7 +614,7 @@ function TaskBoard() {
     }
     async function handleDelete(taskId) {
         try {
-            const response = await fetch(`${API_URL}/tasks/${taskId}`, {
+            const response = await fetch(`${TASKS_PATH}/${taskId}`, {
                 method: "DELETE"
             });
             if (!response.ok) {
@@ -641,7 +642,7 @@ function TaskBoard() {
                             children: "Daily list"
                         }, void 0, false, {
                             fileName: "[project]/OneDrive/Documents/YesheyZhennue_02240372_DSO101_A1/fe/src/components/tasks/task-board.tsx",
-                            lineNumber: 162,
+                            lineNumber: 163,
                             columnNumber: 11
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$OneDrive$2f$Documents$2f$YesheyZhennue_02240372_DSO101_A1$2f$fe$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("h1", {
@@ -649,7 +650,7 @@ function TaskBoard() {
                             children: "Keep your day in one place"
                         }, void 0, false, {
                             fileName: "[project]/OneDrive/Documents/YesheyZhennue_02240372_DSO101_A1/fe/src/components/tasks/task-board.tsx",
-                            lineNumber: 163,
+                            lineNumber: 164,
                             columnNumber: 11
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$OneDrive$2f$Documents$2f$YesheyZhennue_02240372_DSO101_A1$2f$fe$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -657,7 +658,7 @@ function TaskBoard() {
                             children: "A plain, useful list for the things you actually want to finish."
                         }, void 0, false, {
                             fileName: "[project]/OneDrive/Documents/YesheyZhennue_02240372_DSO101_A1/fe/src/components/tasks/task-board.tsx",
-                            lineNumber: 164,
+                            lineNumber: 165,
                             columnNumber: 11
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$OneDrive$2f$Documents$2f$YesheyZhennue_02240372_DSO101_A1$2f$fe$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -669,16 +670,16 @@ function TaskBoard() {
                                         "Connected to:",
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$OneDrive$2f$Documents$2f$YesheyZhennue_02240372_DSO101_A1$2f$fe$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("code", {
                                             className: __TURBOPACK__imported__module__$5b$project$5d2f$OneDrive$2f$Documents$2f$YesheyZhennue_02240372_DSO101_A1$2f$fe$2f$src$2f$components$2f$tasks$2f$task$2d$board$2e$module$2e$css__$5b$app$2d$ssr$5d$__$28$css__module$29$__["default"].code,
-                                            children: API_URL
+                                            children: API_LABEL
                                         }, void 0, false, {
                                             fileName: "[project]/OneDrive/Documents/YesheyZhennue_02240372_DSO101_A1/fe/src/components/tasks/task-board.tsx",
-                                            lineNumber: 170,
+                                            lineNumber: 171,
                                             columnNumber: 15
                                         }, this)
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/OneDrive/Documents/YesheyZhennue_02240372_DSO101_A1/fe/src/components/tasks/task-board.tsx",
-                                    lineNumber: 168,
+                                    lineNumber: 169,
                                     columnNumber: 13
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$OneDrive$2f$Documents$2f$YesheyZhennue_02240372_DSO101_A1$2f$fe$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
@@ -688,13 +689,13 @@ function TaskBoard() {
                                     children: "Refresh"
                                 }, void 0, false, {
                                     fileName: "[project]/OneDrive/Documents/YesheyZhennue_02240372_DSO101_A1/fe/src/components/tasks/task-board.tsx",
-                                    lineNumber: 172,
+                                    lineNumber: 173,
                                     columnNumber: 13
                                 }, this)
                             ]
                         }, void 0, true, {
                             fileName: "[project]/OneDrive/Documents/YesheyZhennue_02240372_DSO101_A1/fe/src/components/tasks/task-board.tsx",
-                            lineNumber: 167,
+                            lineNumber: 168,
                             columnNumber: 11
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$OneDrive$2f$Documents$2f$YesheyZhennue_02240372_DSO101_A1$2f$fe$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -702,13 +703,13 @@ function TaskBoard() {
                             children: "Double-click any task to rename it. Keep it quick, keep it moving."
                         }, void 0, false, {
                             fileName: "[project]/OneDrive/Documents/YesheyZhennue_02240372_DSO101_A1/fe/src/components/tasks/task-board.tsx",
-                            lineNumber: 180,
+                            lineNumber: 181,
                             columnNumber: 11
                         }, this)
                     ]
                 }, void 0, true, {
                     fileName: "[project]/OneDrive/Documents/YesheyZhennue_02240372_DSO101_A1/fe/src/components/tasks/task-board.tsx",
-                    lineNumber: 161,
+                    lineNumber: 162,
                     columnNumber: 9
                 }, this),
                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$OneDrive$2f$Documents$2f$YesheyZhennue_02240372_DSO101_A1$2f$fe$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("section", {
@@ -719,7 +720,7 @@ function TaskBoard() {
                             children: error
                         }, void 0, false, {
                             fileName: "[project]/OneDrive/Documents/YesheyZhennue_02240372_DSO101_A1/fe/src/components/tasks/task-board.tsx",
-                            lineNumber: 186,
+                            lineNumber: 187,
                             columnNumber: 21
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$OneDrive$2f$Documents$2f$YesheyZhennue_02240372_DSO101_A1$2f$fe$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$OneDrive$2f$Documents$2f$YesheyZhennue_02240372_DSO101_A1$2f$fe$2f$src$2f$components$2f$tasks$2f$task$2d$form$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["TaskForm"], {
@@ -729,7 +730,7 @@ function TaskBoard() {
                             onSubmit: handleAdd
                         }, void 0, false, {
                             fileName: "[project]/OneDrive/Documents/YesheyZhennue_02240372_DSO101_A1/fe/src/components/tasks/task-board.tsx",
-                            lineNumber: 188,
+                            lineNumber: 189,
                             columnNumber: 11
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$OneDrive$2f$Documents$2f$YesheyZhennue_02240372_DSO101_A1$2f$fe$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$OneDrive$2f$Documents$2f$YesheyZhennue_02240372_DSO101_A1$2f$fe$2f$src$2f$components$2f$tasks$2f$task$2d$stats$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["TaskStats"], {
@@ -737,12 +738,12 @@ function TaskBoard() {
                             completed: completedCount
                         }, void 0, false, {
                             fileName: "[project]/OneDrive/Documents/YesheyZhennue_02240372_DSO101_A1/fe/src/components/tasks/task-board.tsx",
-                            lineNumber: 195,
+                            lineNumber: 196,
                             columnNumber: 11
                         }, this),
                         tasks.length === 0 ? /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$OneDrive$2f$Documents$2f$YesheyZhennue_02240372_DSO101_A1$2f$fe$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$OneDrive$2f$Documents$2f$YesheyZhennue_02240372_DSO101_A1$2f$fe$2f$src$2f$components$2f$tasks$2f$task$2d$empty$2d$state$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["TaskEmptyState"], {}, void 0, false, {
                             fileName: "[project]/OneDrive/Documents/YesheyZhennue_02240372_DSO101_A1/fe/src/components/tasks/task-board.tsx",
-                            lineNumber: 198,
+                            lineNumber: 199,
                             columnNumber: 13
                         }, this) : /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$OneDrive$2f$Documents$2f$YesheyZhennue_02240372_DSO101_A1$2f$fe$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$OneDrive$2f$Documents$2f$YesheyZhennue_02240372_DSO101_A1$2f$fe$2f$src$2f$components$2f$tasks$2f$task$2d$table$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["TaskTable"], {
                             tasks: tasks,
@@ -756,24 +757,24 @@ function TaskBoard() {
                             onDelete: handleDelete
                         }, void 0, false, {
                             fileName: "[project]/OneDrive/Documents/YesheyZhennue_02240372_DSO101_A1/fe/src/components/tasks/task-board.tsx",
-                            lineNumber: 200,
+                            lineNumber: 201,
                             columnNumber: 13
                         }, this)
                     ]
                 }, void 0, true, {
                     fileName: "[project]/OneDrive/Documents/YesheyZhennue_02240372_DSO101_A1/fe/src/components/tasks/task-board.tsx",
-                    lineNumber: 185,
+                    lineNumber: 186,
                     columnNumber: 9
                 }, this)
             ]
         }, void 0, true, {
             fileName: "[project]/OneDrive/Documents/YesheyZhennue_02240372_DSO101_A1/fe/src/components/tasks/task-board.tsx",
-            lineNumber: 160,
+            lineNumber: 161,
             columnNumber: 7
         }, this)
     }, void 0, false, {
         fileName: "[project]/OneDrive/Documents/YesheyZhennue_02240372_DSO101_A1/fe/src/components/tasks/task-board.tsx",
-        lineNumber: 159,
+        lineNumber: 160,
         columnNumber: 5
     }, this);
 }

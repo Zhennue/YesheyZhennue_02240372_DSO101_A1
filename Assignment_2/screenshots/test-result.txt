@@ -1,0 +1,179 @@
+Started by user YESHEY ZHENNUE
+Obtained JenkinsFile from git https://github.com/Zhennue/YesheyZhennue_02240372_DSO101_A1
+[Pipeline] Start of Pipeline
+[Pipeline] node
+Running on Jenkins in C:\ProgramData\Jenkins\.jenkins\workspace\todo
+[Pipeline] {
+[Pipeline] stage
+[Pipeline] { (Declarative: Checkout SCM)
+[Pipeline] checkout
+The recommended git tool is: git.exe
+using credential YesheyZhennue_02240372_DSO101_A1
+ > git.exe rev-parse --resolve-git-dir C:\ProgramData\Jenkins\.jenkins\workspace\todo\.git # timeout=10
+Fetching changes from the remote Git repository
+ > git.exe config remote.origin.url https://github.com/Zhennue/YesheyZhennue_02240372_DSO101_A1 # timeout=10
+Fetching upstream changes from https://github.com/Zhennue/YesheyZhennue_02240372_DSO101_A1
+ > git.exe --version # timeout=10
+ > git --version # 'git version 2.54.0.windows.1'
+using GIT_ASKPASS to set credentials 
+ > git.exe fetch --tags --force --progress -- https://github.com/Zhennue/YesheyZhennue_02240372_DSO101_A1 +refs/heads/*:refs/remotes/origin/* # timeout=10
+ > git.exe rev-parse "refs/remotes/origin/main^{commit}" # timeout=10
+Checking out Revision 20c4a327c50ea750e257284c23da113ca3a0d4ca (refs/remotes/origin/main)
+ > git.exe config core.sparsecheckout # timeout=10
+ > git.exe checkout -f 20c4a327c50ea750e257284c23da113ca3a0d4ca # timeout=10
+Commit message: "updated be"
+ > git.exe rev-list --no-walk 5161934c24c22cdc0e5076de3381ad087a08a42c # timeout=10
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] withEnv
+[Pipeline] {
+[Pipeline] stage
+[Pipeline] { (Declarative: Tool Install)
+[Pipeline] tool
+[Pipeline] envVarsForTool
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] withEnv
+[Pipeline] {
+[Pipeline] stage
+[Pipeline] { (Checkout)
+[Pipeline] tool
+[Pipeline] envVarsForTool
+[Pipeline] withEnv
+[Pipeline] {
+[Pipeline] git
+The recommended git tool is: git.exe
+Warning: CredentialId "Zhennue" could not be found.
+ > git.exe rev-parse --resolve-git-dir C:\ProgramData\Jenkins\.jenkins\workspace\todo\.git # timeout=10
+Fetching changes from the remote Git repository
+ > git.exe config remote.origin.url https://github.com/Zhennue/YesheyZhennue_02240372_DSO101_A1 # timeout=10
+Fetching upstream changes from https://github.com/Zhennue/YesheyZhennue_02240372_DSO101_A1
+ > git.exe --version # timeout=10
+ > git --version # 'git version 2.54.0.windows.1'
+ > git.exe fetch --tags --force --progress -- https://github.com/Zhennue/YesheyZhennue_02240372_DSO101_A1 +refs/heads/*:refs/remotes/origin/* # timeout=10
+ > git.exe rev-parse "refs/remotes/origin/main^{commit}" # timeout=10
+Checking out Revision 20c4a327c50ea750e257284c23da113ca3a0d4ca (refs/remotes/origin/main)
+ > git.exe config core.sparsecheckout # timeout=10
+ > git.exe checkout -f 20c4a327c50ea750e257284c23da113ca3a0d4ca # timeout=10
+ > git.exe branch -a -v --no-abbrev # timeout=10
+ > git.exe checkout -b main 20c4a327c50ea750e257284c23da113ca3a0d4ca # timeout=10
+Commit message: "updated be"
+[Pipeline] }
+[Pipeline] // withEnv
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] stage
+[Pipeline] { (Install)
+[Pipeline] tool
+[Pipeline] envVarsForTool
+[Pipeline] withEnv
+[Pipeline] {
+[Pipeline] dir
+Running in C:\ProgramData\Jenkins\.jenkins\workspace\todo\be
+[Pipeline] {
+[Pipeline] bat
+
+C:\ProgramData\Jenkins\.jenkins\workspace\todo\be>npm install 
+npm warn EBADENGINE Unsupported engine {
+npm warn EBADENGINE   package: 'be@1.0.0',
+npm warn EBADENGINE   required: { node: '20.x' },
+npm warn EBADENGINE   current: { node: 'v25.9.0', npm: '11.12.1' }
+npm warn EBADENGINE }
+npm warn deprecated rimraf@2.7.1: Rimraf versions prior to v4 are no longer supported
+npm warn deprecated inflight@1.0.6: This module is not supported, and leaks memory. Do not use it. Check out lru-cache if you want a good and tested way to coalesce async requests by a key value, which is much more comprehensive and powerful.
+npm warn deprecated glob@7.2.3: Old versions of glob are not supported, and contain widely publicized security vulnerabilities, which have been fixed in the current version. Please update. Support for old versions may be purchased (at exorbitant rates) by contacting i@izs.me
+
+added 168 packages, and audited 169 packages in 13s
+
+44 packages are looking for funding
+  run `npm fund` for details
+
+7 vulnerabilities (3 moderate, 4 high)
+
+To address all issues, run:
+  npm audit fix
+
+Run `npm audit` for details.
+[Pipeline] }
+[Pipeline] // dir
+[Pipeline] }
+[Pipeline] // withEnv
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] stage
+[Pipeline] { (Build)
+[Pipeline] tool
+[Pipeline] envVarsForTool
+[Pipeline] withEnv
+[Pipeline] {
+[Pipeline] dir
+Running in C:\ProgramData\Jenkins\.jenkins\workspace\todo\be
+[Pipeline] {
+[Pipeline] bat
+
+C:\ProgramData\Jenkins\.jenkins\workspace\todo\be>npm run build 
+
+> be@1.0.0 build
+> tsc -p tsconfig.json
+
+[Pipeline] }
+[Pipeline] // dir
+[Pipeline] }
+[Pipeline] // withEnv
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] stage
+[Pipeline] { (Test)
+[Pipeline] tool
+[Pipeline] envVarsForTool
+[Pipeline] withEnv
+[Pipeline] {
+[Pipeline] dir
+Running in C:\ProgramData\Jenkins\.jenkins\workspace\todo\be
+[Pipeline] {
+[Pipeline] bat
+
+C:\ProgramData\Jenkins\.jenkins\workspace\todo\be>npm run build 
+
+> be@1.0.0 build
+> tsc -p tsconfig.json
+
+[Pipeline] }
+[Pipeline] // dir
+Post stage
+[Pipeline] echo
+No backend test suite is defined; build was used as the verification step.
+[Pipeline] }
+[Pipeline] // withEnv
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] stage
+[Pipeline] { (Deploy)
+[Pipeline] tool
+[Pipeline] envVarsForTool
+[Pipeline] withEnv
+[Pipeline] {
+[Pipeline] echo
+App is deployed on Render.com via GitHub auto-deploy
+[Pipeline] echo
+Backend: https://be-todo-eytb.onrender.com
+[Pipeline] echo
+Frontend: https://fe-todo-kinley.onrender.com
+[Pipeline] }
+[Pipeline] // withEnv
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] stage
+[Pipeline] { (Declarative: Post Actions)
+[Pipeline] echo
+Pipeline completed successfully!
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] }
+[Pipeline] // withEnv
+[Pipeline] }
+[Pipeline] // withEnv
+[Pipeline] }
+[Pipeline] // node
+[Pipeline] End of Pipeline
+Finished: SUCCESS
