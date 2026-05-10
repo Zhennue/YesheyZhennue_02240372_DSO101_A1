@@ -1,36 +1,36 @@
 name: Deploy
 
 on:
-	push:
-		branches: ["main"]
+  push:
+    branches: ["main"]
 
 jobs:
-	build-and-deploy:
-		runs-on: ubuntu-latest
+  build-and-deploy:
+    runs-on: ubuntu-latest
 
-		steps:
-			# 1. Checkout code
-			- name: Checkout Repository
-				uses: actions/checkout@v4
+    steps:
+      # 1. Checkout code
+      - name: Checkout Repository
+        uses: actions/checkout@v4
 
-			# 2. Login to DockerHub
-			- name: Login to DockerHub
-				uses: docker/login-action@v3
-				with:
-					username: ${{ secrets.DOCKERHUB_USERNAME }}
-					password: ${{ secrets.DOCKERHUB_TOKEN }}
+      # 2. Login to DockerHub
+      - name: Login to DockerHub
+        uses: docker/login-action@v3
+        with:
+          username: ${{ secrets.DOCKERHUB_USERNAME }}
+          password: ${{ secrets.DOCKERHUB_TOKEN }}
 
-			# 3. Build & Push Docker Images
-			- name: Build and Push Backend Image
-				run: |
-					docker build -t ${{ secrets.DOCKERHUB_USERNAME }}/be-todo:latest ./be
-					docker push ${{ secrets.DOCKERHUB_USERNAME }}/be-todo:latest
+      # 3. Build & Push Docker Images
+      - name: Build and Push Backend Image
+        run: |
+          docker build -t ${{ secrets.DOCKERHUB_USERNAME }}/be-todo:latest ./be
+          docker push ${{ secrets.DOCKERHUB_USERNAME }}/be-todo:latest
 
-			- name: Build and Push Frontend Image
-				run: |
-					docker build -t ${{ secrets.DOCKERHUB_USERNAME }}/fe-todo:latest ./fe
-					docker push ${{ secrets.DOCKERHUB_USERNAME }}/fe-todo:latest
+      - name: Build and Push Frontend Image
+        run: |
+          docker build -t ${{ secrets.DOCKERHUB_USERNAME }}/fe-todo:latest ./fe
+          docker push ${{ secrets.DOCKERHUB_USERNAME }}/fe-todo:latest
 
-			# 4. Deploy to Render.com (via webhook)
-			- name: Trigger Render Deployment
-				run: curl -fsSL -X POST "${{ secrets.RENDER_DEPLOY_HOOK_URL }}"
+      # 4. Deploy to Render.com (via webhook)
+      - name: Trigger Render Deployment
+        run: curl -fsSL -X POST "${{ secrets.RENDER_DEPLOY_HOOK_URL }}"
