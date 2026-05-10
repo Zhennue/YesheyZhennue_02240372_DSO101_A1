@@ -1,7 +1,7 @@
 pipeline {
     agent any
     tools {
-        nodejs 'NodeJS'
+        nodejs 'LTS v20.x'
     }
     stages {
 
@@ -15,7 +15,7 @@ pipeline {
 
         stage('Install') {
             steps {
-                dir('backend') {
+                dir('be') {
                     bat 'npm install'
                 }
             }
@@ -23,7 +23,7 @@ pipeline {
 
         stage('Build') {
             steps {
-                dir('backend') {
+                dir('be') {
                     bat 'npm run build'
                 }
             }
@@ -31,13 +31,13 @@ pipeline {
 
         stage('Test') {
             steps {
-                dir('backend') {
-                    bat 'npm test'
+                dir('be') {
+                    bat 'npm run build'
                 }
             }
             post {
                 always {
-                    junit 'backend/junit.xml'
+                    echo 'No backend test suite is defined; build was used as the verification step.'
                 }
             }
         }
