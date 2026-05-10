@@ -9,7 +9,7 @@ stage('Checkout') {
 steps {
 git branch: 'main',
 Url:
-'https://github.com/yourusername/assignment1-node-app.git'
+'https://github.com/Zhennue/YesheyZhennue_02240372_DSO101_A1'
 }
 }
 // Stage 2: Install Dependencies

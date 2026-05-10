@@ -1,44 +1,75 @@
-import { Injectable, NotFoundException } from "@nestjs/common";
-import { InjectRepository } from "@nestjs/typeorm";
-import { Repository } from "typeorm";
-import { Task } from "./task.entity";
-import { CreateTaskDto } from "./dto/create-task.dto";
-import { UpdateTaskDto } from "./dto/update-task.dto";
+import {
+  BadRequestException,
+  Injectable,
+  NotFoundException,
+} from "@nestjs/common";
+import { Task, TaskPatch } from "./task.types";
 
 @Injectable()
 export class TasksService {
-  constructor(
-    @InjectRepository(Task)
-    private readonly tasksRepository: Repository<Task>,
-  ) {}
+  private readonly tasks: Task[] = [];
+  private nextId = 1;
 
-  findAll(): Promise<Task[]> {
-    return this.tasksRepository.find({ order: { id: "ASC" } });
+  findAll(): Task[] {
+    return [...this.tasks];
   }
 
-  async findOne(id: number): Promise<Task> {
-    const task = await this.tasksRepository.findOne({ where: { id } });
-    if (!task) {
-      throw new NotFoundException("Task not found");
+  create(title: string): Task {
+    const trimmedTitle = title.trim();
+
+    if (!trimmedTitle) {
+      throw new BadRequestException("Title is required");
     }
+
+    const task: Task = {
+      id: this.nextId,
+      title: trimmedTitle,
+      completed: false,
+    };
+
+    this.nextId += 1;
+    this.tasks.push(task);
+
     return task;
   }
 
-  create(dto: CreateTaskDto): Promise<Task> {
-    const task = this.tasksRepository.create({ ...dto, completed: false });
-    return this.tasksRepository.save(task);
+  update(id: number, patch: TaskPatch): Task {
+    const task = this.findOne(id);
+
+    if (patch.title !== undefined) {
+      const trimmedTitle = patch.title.trim();
+
+      if (!trimmedTitle) {
+        throw new BadRequestException("Title cannot be empty");
+      }
+
+      task.title = trimmedTitle;
+    }
+
+    if (patch.completed !== undefined) {
+      task.completed = patch.completed;
+    }
+
+    return task;
   }
 
-  async update(id: number, dto: UpdateTaskDto): Promise<Task> {
-    const task = await this.findOne(id);
-    Object.assign(task, dto);
-    return this.tasksRepository.save(task);
-  }
+  remove(id: number): void {
+    const index = this.tasks.findIndex((task) => task.id === id);
 
-  async remove(id: number): Promise<void> {
-    const result = await this.tasksRepository.delete(id);
-    if (result.affected === 0) {
+    if (index === -1) {
       throw new NotFoundException("Task not found");
     }
+
+    this.tasks.splice(index, 1);
+  }
+
+  private findOne(id: number): Task {
+    const task = this.tasks.find((entry) => entry.id === id);
+
+    if (!task) {
+      throw new NotFoundException("Task not found");
+    }
+
+    return task;
   }
 }

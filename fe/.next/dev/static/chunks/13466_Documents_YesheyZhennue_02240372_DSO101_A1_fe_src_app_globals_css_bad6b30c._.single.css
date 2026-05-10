@@ -1,0 +1,54 @@
+/* [project]/OneDrive/Documents/YesheyZhennue_02240372_DSO101_A1/fe/src/app/globals.css [app-client] (css) */
+:root {
+  --background: #f5efe6;
+  --foreground: #2f2924;
+  --surface: #fffbf5e0;
+  --surface-strong: #fff8effa;
+  --border: #6c5c502e;
+  --shadow: 0 22px 60px #4d3b2e1f;
+  --accent: #7c5f43;
+  --accent-soft: #7c5f431f;
+  --muted: #74675d;
+}
+
+html, body {
+  max-width: 100vw;
+  min-height: 100%;
+  overflow-x: hidden;
+}
+
+body {
+  color: var(--foreground);
+  background: var(--background);
+  font-family: var(--font-source-sans), "Segoe UI", Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-image: radial-gradient(circle at 0 0, #ffffffa6, #0000 28%), radial-gradient(circle at 80% 15%, #e6d0b680, #0000 26%), radial-gradient(circle at 100% 100%, #ac8a6a24, #0000 30%), linear-gradient(#f8f2ea 0%, #f5efe6 52%, #efe5d8 100%);
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button, input, textarea, select {
+  font: inherit;
+}
+
+::selection {
+  background: #7c5f4333;
+}
+
+html {
+  --lightningcss-light: initial;
+  --lightningcss-dark: ;
+  color-scheme: light;
+}
+
+/*# sourceMappingURL=13466_Documents_YesheyZhennue_02240372_DSO101_A1_fe_src_app_globals_css_bad6b30c._.single.css.map*/

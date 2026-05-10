@@ -1,0 +1,6 @@
+{
+  "version": 3,
+  "sources": [],
+  "sections": [
+    {"offset": {"line": 1, "column": 0}, "map": {"version":3,"sources":["turbopack:///[project]/OneDrive/Documents/YesheyZhennue_02240372_DSO101_A1/fe/src/components/tasks/task-empty-state.module.css"],"sourcesContent":[".emptyState {\r\n  padding: 22px 16px 10px;\r\n  border-radius: 18px;\r\n  border: 1px dashed rgba(124, 95, 67, 0.24);\r\n  background: rgba(255, 255, 255, 0.52);\r\n  text-align: center;\r\n  color: #7d7166;\r\n  font-size: 13px;\r\n}\r\n\r\n.title {\r\n  font-weight: 500;\r\n  color: #332c26;\r\n  margin-bottom: 4px;\r\n}\r\n"],"names":[],"mappings":"AAAA;;;;;;;;;;AAUA"}}]
+}

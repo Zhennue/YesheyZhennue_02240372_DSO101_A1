@@ -1,0 +1,72 @@
+/* [project]/OneDrive/Documents/YesheyZhennue_02240372_DSO101_A1/fe/src/components/tasks/task-form.module.css [app-client] (css) */
+.task-form-module__0Tjh0W__form {
+  gap: 10px;
+  display: flex;
+}
+
+.task-form-module__0Tjh0W__input {
+  color: #2f2924;
+  background: #ffffffd1;
+  border: 1px solid #7c5f432e;
+  border-radius: 16px;
+  outline: none;
+  flex: 1;
+  padding: 13px 14px;
+  font-size: 13px;
+  transition: border-color .16s, box-shadow .16s, background .16s;
+}
+
+.task-form-module__0Tjh0W__input::placeholder {
+  color: #9a8d80;
+}
+
+.task-form-module__0Tjh0W__input:focus {
+  background: #fffffffa;
+  border-color: #7c5f4361;
+  box-shadow: 0 0 0 3px #7c5f4314;
+}
+
+.task-form-module__0Tjh0W__button {
+  cursor: pointer;
+  color: #fffaf4;
+  background: linear-gradient(#8a6a4b, #71553d);
+  border: 1px solid #7c5f4329;
+  border-radius: 16px;
+  justify-content: center;
+  align-items: center;
+  padding: 11px 18px;
+  font-size: 13px;
+  font-weight: 500;
+  transition: transform 80ms, box-shadow 80ms, filter 80ms;
+  display: inline-flex;
+  box-shadow: 0 12px 24px #5c422b29;
+}
+
+.task-form-module__0Tjh0W__button:hover:not(:disabled) {
+  filter: brightness(1.03);
+  transform: translateY(-1px);
+  box-shadow: 0 14px 28px #5c422b33;
+}
+
+.task-form-module__0Tjh0W__button:active:not(:disabled) {
+  transform: translateY(0);
+  box-shadow: 0 10px 20px #5c422b29;
+}
+
+.task-form-module__0Tjh0W__button:disabled {
+  opacity: .7;
+  cursor: default;
+  box-shadow: none;
+}
+
+@media (max-width: 540px) {
+  .task-form-module__0Tjh0W__form {
+    flex-direction: column;
+  }
+
+  .task-form-module__0Tjh0W__button {
+    width: 100%;
+  }
+}
+
+/*# sourceMappingURL=377ac_02240372_DSO101_A1_fe_src_components_tasks_task-form_module_css_bad6b30c._.single.css.map*/

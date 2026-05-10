@@ -1,0 +1,175 @@
+/* [project]/OneDrive/Documents/YesheyZhennue_02240372_DSO101_A1/fe/src/components/tasks/task-table.module.css [app-client] (css) */
+.task-table-module__aLbDuW__tableShell {
+  background: linear-gradient(#fffbf5f5, #f8f1e7f5);
+  border: 1px solid #7c5f4324;
+  border-radius: 22px;
+  overflow: hidden;
+  box-shadow: 0 12px 30px #4937290f;
+}
+
+.task-table-module__aLbDuW__tableScroll {
+  overflow-x: auto;
+}
+
+.task-table-module__aLbDuW__table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+.task-table-module__aLbDuW__headCell {
+  text-transform: uppercase;
+  letter-spacing: .08em;
+  text-align: left;
+  color: #87796a;
+  background: #ffffff57;
+  border-bottom: 1px solid #7c5f431f;
+  padding: 14px 16px;
+  font-size: 11px;
+}
+
+.task-table-module__aLbDuW__row {
+  transition: background .16s, transform 80ms;
+}
+
+.task-table-module__aLbDuW__row:hover {
+  background: #ffffffad;
+}
+
+.task-table-module__aLbDuW__cell {
+  vertical-align: middle;
+  border-bottom: 1px solid #7c5f431a;
+  padding: 14px 16px;
+}
+
+.task-table-module__aLbDuW__selectCell {
+  width: 54px;
+}
+
+.task-table-module__aLbDuW__titleCell {
+  width: auto;
+}
+
+.task-table-module__aLbDuW__statusCell {
+  width: 132px;
+}
+
+.task-table-module__aLbDuW__actionsCell {
+  text-align: right;
+  width: 72px;
+}
+
+.task-table-module__aLbDuW__checkboxLabel {
+  justify-content: center;
+  align-items: center;
+  width: 18px;
+  height: 18px;
+  display: inline-flex;
+  position: relative;
+}
+
+.task-table-module__aLbDuW__checkboxInput {
+  opacity: 0;
+  cursor: pointer;
+  position: absolute;
+  inset: 0;
+}
+
+.task-table-module__aLbDuW__checkboxCustom {
+  background: #ffffffeb;
+  border: 1px solid #7c5f4361;
+  border-radius: 5px;
+  width: 16px;
+  height: 16px;
+  transition: background .16s, border-color .16s, box-shadow .16s, transform 80ms;
+  box-shadow: 0 0 0 1px #ffffff80;
+}
+
+.task-table-module__aLbDuW__checkboxInput:checked + .task-table-module__aLbDuW__checkboxCustom {
+  background: linear-gradient(#8fb28f, #6f9672);
+  border-color: #5c7a5ef2;
+  box-shadow: 0 0 0 1px #5c7a5e4d;
+}
+
+.task-table-module__aLbDuW__checkboxInput:focus-visible + .task-table-module__aLbDuW__checkboxCustom {
+  box-shadow: 0 0 0 3px #7c5f432e;
+}
+
+.task-table-module__aLbDuW__taskText {
+  color: #2f2924;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  cursor: default;
+  max-width: 100%;
+  font-size: 13px;
+  display: block;
+  overflow: hidden;
+}
+
+.task-table-module__aLbDuW__completed {
+  color: #8a7f74;
+  text-decoration: line-through;
+}
+
+.task-table-module__aLbDuW__editInput {
+  color: #2f2924;
+  background: #fffffff2;
+  border: 1px solid #7c5f432e;
+  border-radius: 10px;
+  outline: none;
+  width: 100%;
+  padding: 8px 10px;
+  font-size: 13px;
+}
+
+.task-table-module__aLbDuW__editInput:focus {
+  border-color: #7c5f4357;
+  box-shadow: 0 0 0 3px #7c5f4314;
+}
+
+.task-table-module__aLbDuW__statusBadge {
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  color: #6d5d4f;
+  background: #ffffffb8;
+  border: 1px solid #7c5f431f;
+  border-radius: 999px;
+  justify-content: center;
+  align-items: center;
+  min-width: 78px;
+  padding: 5px 10px;
+  font-size: 11px;
+  display: inline-flex;
+}
+
+.task-table-module__aLbDuW__statusDone {
+  color: #5c7a5e;
+  background: #6f967224;
+  border-color: #6f967238;
+}
+
+.task-table-module__aLbDuW__deleteButton {
+  color: #a45a49;
+  cursor: pointer;
+  background: #ffffffbd;
+  border: 1px solid #7c5f431a;
+  border-radius: 999px;
+  justify-content: center;
+  align-items: center;
+  width: 26px;
+  height: 26px;
+  font-size: 13px;
+  transition: background .16s, color .16s, transform 80ms;
+  display: inline-flex;
+}
+
+.task-table-module__aLbDuW__deleteButton:hover {
+  color: #8d3e27;
+  background: #be4c321f;
+  transform: translateY(-1px);
+}
+
+.task-table-module__aLbDuW__deleteButton:active {
+  transform: translateY(0);
+}
+
+/*# sourceMappingURL=377ac_02240372_DSO101_A1_fe_src_components_tasks_task-table_module_css_bad6b30c._.single.css.map*/

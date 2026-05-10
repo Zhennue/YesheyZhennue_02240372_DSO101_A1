@@ -9,8 +9,15 @@ import {
   Post,
 } from "@nestjs/common";
 import { TasksService } from "./tasks.service";
-import { CreateTaskDto } from "./dto/create-task.dto";
-import { UpdateTaskDto } from "./dto/update-task.dto";
+
+type CreateTaskBody = {
+  title: string;
+};
+
+type UpdateTaskBody = {
+  title?: string;
+  completed?: boolean;
+};
 
 @Controller("tasks")
 export class TasksController {
@@ -22,17 +29,18 @@ export class TasksController {
   }
 
   @Post()
-  create(@Body() dto: CreateTaskDto) {
-    return this.tasksService.create(dto);
+  create(@Body() body: CreateTaskBody) {
+    return this.tasksService.create(body.title);
   }
 
   @Patch(":id")
-  update(@Param("id", ParseIntPipe) id: number, @Body() dto: UpdateTaskDto) {
-    return this.tasksService.update(id, dto);
+  update(@Param("id", ParseIntPipe) id: number, @Body() body: UpdateTaskBody) {
+    return this.tasksService.update(id, body);
   }
 
   @Delete(":id")
   remove(@Param("id", ParseIntPipe) id: number) {
-    return this.tasksService.remove(id);
+    this.tasksService.remove(id);
+    return { success: true };
   }
 }

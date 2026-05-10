@@ -1,0 +1,6 @@
+{
+  "version": 3,
+  "sources": [],
+  "sections": [
+    {"offset": {"line": 1, "column": 0}, "map": {"version":3,"sources":["turbopack:///[project]/OneDrive/Documents/YesheyZhennue_02240372_DSO101_A1/fe/src/components/tasks/task-stats.module.css"],"sourcesContent":[".statsRow {\r\n  display: flex;\r\n  justify-content: space-between;\r\n  font-size: 11px;\r\n  text-transform: uppercase;\r\n  letter-spacing: 0.08em;\r\n  color: #87796a;\r\n  padding: 2px 2px 0;\r\n}\r\n"],"names":[],"mappings":"AAAA"}}]
+}
